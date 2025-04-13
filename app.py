@@ -46,6 +46,9 @@ def send_email(identifier: str, password: str):
             print("Email sent successfully")
     except Exception as e:
         print(f"Error sending email: {e}")
+@app.get("/")
+async def root():
+    return {"message": "SAPI is working"}
 
 @app.post("/login")
 async def login(identifier: str = Form(...), password: str = Form(...)):
